@@ -1,0 +1,154 @@
+/* Animated Gradient Background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #74ABE2, #5563DE, #ff758c, #ff7eb3);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Gradient Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Particles */
+body::before, body::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 1%, transparent 1%) repeat;
+    background-size: 50px 50px;
+    animation: moveParticles 60s linear infinite;
+    z-index: 0;
+}
+body::after {
+    animation-duration: 100s;
+    opacity: 0.3;
+}
+@keyframes moveParticles {
+    from { transform: translate(0,0); }
+    to { transform: translate(-50px,-50px); }
+}
+
+/* Game Container with Color-Changing Glow */
+div {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(8px);
+    animation: glowCycle 4s infinite alternate;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes glowCycle {
+    0% { box-shadow: 0 0 20px #ff0, 0 0 40px #ffa500; }
+    25% { box-shadow: 0 0 20px #0ff, 0 0 40px #00aaff; }
+    50% { box-shadow: 0 0 20px #0f0, 0 0 40px #00ff99; }
+    75% { box-shadow: 0 0 20px #f0f, 0 0 40px #ff00aa; }
+    100% { box-shadow: 0 0 20px #ff0, 0 0 40px #ffa500; }
+}
+
+/* Title Text Animation */
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    animation: textColorShift 3s infinite alternate;
+}
+@keyframes textColorShift {
+    0% { color: #ff0; text-shadow: 0 0 10px #ff0; }
+    50% { color: #0ff; text-shadow: 0 0 15px #0ff; }
+    100% { color: #f0f; text-shadow: 0 0 20px #f0f; }
+}
+
+/* Input Field Breathing Glow */
+input[type="number"] {
+    padding: 10px;
+    width: 80%;
+    max-width: 250px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    animation: inputGlow 2s infinite alternate;
+}
+@keyframes inputGlow {
+    0% { box-shadow: 0 0 10px #fff, 0 0 20px #00ffea; }
+    100% { box-shadow: 0 0 15px #0ff, 0 0 25px #0077ff; }
+}
+
+/* Animated Glowing Button */
+button {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: buttonPulse 2s infinite alternate;
+}
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 10px #ff0, 0 0 20px #ffa500; transform: scale(1); }
+    100% { box-shadow: 0 0 20px #ff0, 0 0 40px #ff4500; transform: scale(1.05); }
+}
+button:hover {
+    background: linear-gradient(90deg, #FFA500, #FF4500);
+}
+
+/* Timer Glow Animation */
+#timer {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: bold;
+    animation: timerFlash 1s infinite alternate;
+}
+@keyframes timerFlash {
+    0% { text-shadow: 0 0 10px yellow; }
+    100% { text-shadow: 0 0 20px orange; }
+}
+
+/* Message Glow */
+#msg {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Win Glow */
+.win-glow {
+    animation: winFlash 0.5s alternate infinite;
+}
+@keyframes winFlash {
+    from { text-shadow: 0 0 15px lime, 0 0 30px green; }
+    to { text-shadow: 0 0 25px lime, 0 0 50px green; }
+}
+
+/* Lose Glow */
+.lose-glow {
+    animation: loseFlash 0.5s alternate infinite;
+}
+@keyframes loseFlash {
+    from { text-shadow: 0 0 15px red, 0 0 30px darkred; }
+    to { text-shadow: 0 0 25px red, 0 0 50px darkred; }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    h2 { font-size: 1.5rem; }
+    input[type="number"], button { font-size: 0.9rem; }
+}
